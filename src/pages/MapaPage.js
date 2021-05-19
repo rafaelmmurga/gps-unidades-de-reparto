@@ -84,36 +84,29 @@ export function MapaPage() {
           socket.emit("marcador-nuevo", e.latLng.toJSON());
         }}
       >
-        {markers
-          ? markers.map((marker) => {
-              let icon = {
-                url: "https://images.vexels.com/media/users/3/190486/isolated/preview/53c80f13feed9b8d40230febed56b94e-cami-oacute-n-verde-de-transporte-isom-eacute-trico-by-vexels.png",
-                //url: "https://images.vexels.com/media/users/3/154573/isolated/preview/bd08e000a449288c914d851cb9dae110-hatchback-car-top-view-silhouette-by-vexels.png",
-                labelOrigin: { x: 32, y: 20 },
-                scaledSize: {
-                  width: 60,
-                  height: 55,
-                },
-              };
-              return (
-                <Marker
-                  key={marker.id}
-                  draggable={false}
-                  //position={marker.coords}
-                  position={progress[progress.length - 1]}
-                  icon={icon}
-                  //title="520"
-                  label={{
-                    text: "520",
-                    background: "#000",
-                    color: "#fff",
-                    fontSize: "11px",
-                    border: "1px solid #000",
-                  }}
-                />
-              );
-            })
-          : null}
+        <Marker
+          //key={marker.id}
+          draggable={false}
+          //position={marker.coords}
+          position={progress[progress.length - 1]}
+          icon={{
+            url: "https://images.vexels.com/media/users/3/190486/isolated/preview/53c80f13feed9b8d40230febed56b94e-cami-oacute-n-verde-de-transporte-isom-eacute-trico-by-vexels.png",
+            //url: "https://images.vexels.com/media/users/3/154573/isolated/preview/bd08e000a449288c914d851cb9dae110-hatchback-car-top-view-silhouette-by-vexels.png",
+            labelOrigin: { x: 32, y: 20 },
+            scaledSize: {
+              width: 60,
+              height: 55,
+            },
+          }}
+          //title="520"
+          label={{
+            text: "520",
+            background: "#000",
+            color: "#fff",
+            fontSize: "11px",
+            border: "1px solid #000",
+          }}
+        />
         <StreetViewPanorama />
         {/*<Polyline path={initialPath} options={options} />*/}
         <Polyline path={progress} options={options} />
